@@ -1,4 +1,13 @@
--- Fps Boost Script V0.0.1
+-- # Fps Boost Script V0.0.1 
+
+-- Disable the PlayerList GUI if it exists in CoreGui
+pcall(function()
+    local playerList = game:GetService("CoreGui"):WaitForChild("PlayerList")
+    if playerList then
+        playerList.Enabled = false
+        print("PlayerList disabled.")
+    end
+end)
 
 -- Hide all current descendants in the workspace
 for _, v in ipairs(workspace:GetDescendants()) do
