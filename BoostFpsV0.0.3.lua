@@ -1,5 +1,5 @@
 -- # Fps Boost Script V0.0.3 ( Configurable )
--- Using This Script For Showcasing Auto Bounty Script !!!!! 
+-- Using This Script For Showcasing Auto Bounty Script 
 
 --[[
 
@@ -7,7 +7,7 @@ Config :
 
 getgenv().PlayerList = true 
 getgenv().DeleteMap = true   
-loadstring(game:HttpGet(""))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/thieusitinks/FreeScript/refs/heads/main/BoostFpsV0.0.3.lua"))()
 
 ]]
 
