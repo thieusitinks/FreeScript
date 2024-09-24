@@ -7,7 +7,6 @@ Config :
 
 getgenv().PlayerList = true 
 getgenv().DeleteMap = true   
-getgenv().DeleteAllGui = false  
 loadstring(game:HttpGet(""))()
 
 ]]
@@ -68,40 +67,5 @@ local function deleteMap()
     end
 end
 
--- Function to remove leaderboard and other GUIs
-local function removeAllGui()
-    if getgenv().DeleteAllGui then
-        local function removeLeaderboard()
-            local Players = game:GetService("Players")
-            local player = Players.LocalPlayer
-            local playerGui = player:WaitForChild("PlayerGui")
-
-            for _, gui in pairs(playerGui:GetChildren()) do
-                -- Check if it's a ScreenGui and contains specific elements related to the leaderboard
-                if gui:IsA("ScreenGui") then
-                    -- Check the children of the ScreenGui for specific leaderboard characteristics
-                    -- You can modify this condition depending on what you find in the GUI tree
-                    for _, element in pairs(gui:GetDescendants()) do
-                        if element:IsA("TextLabel") and (string.find(element.Text, "Bounty") or string.find(element.Text, "Honor")) then
-                            gui:Destroy()
-                            print("Leaderboard GUI found and removed.")
-                            return
-                        end
-                    end
-                end
-            end
-        end
-
-        -- Call the function to remove the leaderboard repeatedly
-        while true do
-            pcall(function()
-                removeLeaderboard()
-            end)
-            wait(1)
-        end
-    end
-end
-
 disablePlayerList()
 deleteMap()
-removeAllGui()
