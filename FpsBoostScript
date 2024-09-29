@@ -1,5 +1,5 @@
 -- # Fps Boost Script V0.0.1 
-
+wait(999999999999999) -- turn off fucntion
 -- Disable the PlayerList GUI if it exists in CoreGui
 pcall(function()
     local playerList = game:GetService("CoreGui"):WaitForChild("PlayerList")
